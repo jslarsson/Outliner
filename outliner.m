@@ -1,4 +1,4 @@
-function outliner(listofimages, savetps, nonsaved, checkoutline, addscale, savingOutlineImage, outputpath, startNumber, lastNumber, bgcolor)
+function outliner(listofimages, savetps, nonsaved, checkoutline, addscale, savingOutlineImage, outputpath, saveBW, BWpath, startNumber, lastNumber, bgcolor)
 % Do not display warning about size of images
 warning('off', 'Images:initSize:adjustingMag');
 
@@ -15,6 +15,11 @@ for i = startNumber:lastNumber
     snailImage = imread(imagename);
     BWim = removeBG(snailImage,bgcolor);
     
+    if saveBW = 1
+	fullBWname = strcat(BWpath,'BW_',imagename);
+	imwrite(BWim,fullBWname);
+    end
+
     BW2 = bwperim(BWim,4);
     [row, col] = find(BW2);
     [starty,yind] = min(row);

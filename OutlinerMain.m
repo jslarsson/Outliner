@@ -23,12 +23,17 @@ addscale = 0;
 
 % If checking each outline, save names of unsatisfactory outlines
 % in the following text file. APPENDS file, does not overwrite.
-badOutlines = 'C:\Users\Admin\MATLAB\Outlines\samplename_outlines.txt';
+badOutlines = 'C:\Users\Admin\MATLAB\Outlines\samplename_badoutlines.txt';
 
 % Do you want to save small outlined images for double checking? 1/0 
-% If yes, which existing folder?
+% If yes, in which existing folder?
 savingOutlineImage = 1;
 outputpath = 'C:\Users\Admin\Pictures\Shellphotos\Output';
+
+% Do you want to save binary images of the outlines? 1/0
+% If yes, in which existing folder?
+saveBW = 0;
+BWpath = 'C:\Users\Admin\Pictures\Shellphotos\Binary';
 
 % Start or end on specific numbers (alphabetically in folder)
 % If you want all, then use: 1 to numel(listofimages)
@@ -38,4 +43,4 @@ lastNumber = numel(listofimages);
 
 % This part runs the program
 outliner(listofimages, savetps, badOutlines, checkoutline, addscale,...
-    savingOutlineImage, outputpath, startNumber, lastNumber, bgcolor)
+    savingOutlineImage, outputpath, saveBW, BWpath, startNumber, lastNumber, bgcolor)
